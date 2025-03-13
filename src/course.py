@@ -6,8 +6,6 @@ import os
 class Course:
 
     def __init__(self, course_code, course_title):
-        Validator.validate_course_code(course_code)
-        Validator.validate_course_title(course_title)
         self.course_code = course_code
         self.course_title = course_title
         self.courses = []
@@ -19,7 +17,7 @@ class Course:
 
     @course_code.setter
     def course_code(self, course_code):
-        self.__course_code = course_code
+        self.__course_code = Validator.validate_course_code(course_code)
 
     @property
     def course_title(self):
@@ -27,7 +25,7 @@ class Course:
 
     @course_title.setter
     def course_title(self, course_title):
-        self.__title = course_title
+        self.__title = Validator.validate_course_title(course_title)
 
 
     def add_student(self, student_name: str):

@@ -9,6 +9,7 @@ class Instructor(User):
         self.is_logged_in = False
 
     def register(self, first_name, last_name, email, password):
+
         validator.validate_first_name(first_name)
         validator.validate_last_name(last_name)
         validator.validate_email(email)
